@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tortoise Enclosure</title>
+  </head>
+  <link rel="stylesheet" href="../CSS/tempStyle.css" />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
+    type="text/javascript"
+  ></script>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="temp.html">Temperature Monitor</a></li>
+          <li><a href="graph.html">Graph</a></li>
+          <li><a href="settings.html">settings</a></li>
+        </ul>
+      </nav>
+      <h1 id="heading">Settings</h1>
+    </header>
+    <div class="SET">
+      <h1 id="setText">OFF.......SET..........ON</h1>
+      <input type="checkbox" id="myCheckBox" onclick="checkCheckbox()" />
+      <p id="value">OFF</p>
+      <p id="d-hours">Day Time Hour's</p>
+      <p id="d-minutes">Day Time minute's</p>
+      <p id="d-temp">Day Time temp</p>
+      <p id="n-hours">night Time Hour's</p>
+      <p id="n-minutes">night Time minutes's</p>
+      <p id="n-temp">night Time temp</p>
+    </div>
+
+    <!---*****************************-->
+    <!---    Day time hours start     -->
+    <!--******************************-->
+
+    <div class="range-slider">
+      <input type="range" min="0" max="11" value="50%" class="slider" />
+      <div class="slider-thumb">
+        <div class="tooltip"></div>
+      </div>
+      <div class="progress"></div>
+    </div>
+
+    <div class="range-slider">
+      <input type="range" min="0" max="59" value="50%" class="slider" />
+      <div class="slider-thumb">
+        <div class="tooltip"></div>
+      </div>
+      <div class="progress"></div>
+    </div>
+
+    <div class="range-slider">
+      <input type="range" min="0" max="40" value="50%" class="slider" />
+      <div class="slider-thumb">
+        <div class="tooltip"></div>
+      </div>
+      <div class="progress"></div>
+    </div>
+
+    <div class="range-slider">
+      <input type="range" min="0" max="23" value="50%" class="slider" />
+      <div class="slider-thumb">
+        <div class="tooltip"></div>
+      </div>
+      <div class="progress"></div>
+    </div>
+
+    <div class="range-slider">
+      <input type="range" min="0" max="59" value="50%" class="slider" />
+      <div class="slider-thumb">
+        <div class="tooltip"></div>
+      </div>
+      <div class="progress"></div>
+    </div>
+
+    <div class="range-slider">
+      <input type="range" min="0" max="40" value="50%" class="slider" />
+      <div class="slider-thumb">
+        <div class="tooltip"></div>
+      </div>
+      <div class="progress"></div>
+    </div>
+    <!-- <script src="../JS/tempPage.js"></script> -->
+    <script src="../JS/settings.js"></script>
+  </body>
+</html>

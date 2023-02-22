@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tortoise Enclosure</title>
+  </head>
+  <link rel="stylesheet" href="../CSS/gauges.css" />
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script> -->
+ <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
+      type="text/javascript"
+    ></script>
+ <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="temp.html">Temperature Monitor</a></li>
+          <li><a href="graph.html">Graph</a></li>
+          <li><a href="settings.html">settings</a></li>
+        </ul>
+      </nav>
+      <h1 id="heading">Temp Monitor</h1>
+    </header>
+    <body>
+      <!--h1>Tortoise Eclosure</h1>-->
+      <h2 id="Heater">Heater</h2>
+      <div class="gauge">
+        <div class="gauge__body">
+          <div class="gauge__fill"></div>
+          <div class="gauge__cover"></div>
+        </div>
+      </div>
+      <h2 id="cool">Cool Side</h2>
+      <div class="gauge1">
+        <div class="gauge__body1">
+          <div class="gauge__fill1"></div>
+          <div class="gauge__cover1"></div>
+        </div>
+      </div>
+      <h2 id="out">Out Side</h2>
+      <div class="gauge2">
+        <div class="gauge__body2">
+          <div class="gauge__fill2"></div>
+          <div class="gauge__cover2"></div>
+        </div>
+      </div>
+       <script src="../JS/tempPage.js"type="text/javascript"></script>>
+  </body>
+</html>
