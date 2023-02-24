@@ -10,7 +10,8 @@ function checkInput(){
 console.log('username = ' + username )
 console.log('password = '+ password)
   if (username == storedUsername && password == storedPassword) {
-    document.location.href= 'pages/settings.html'
+    console.log(username + "is logged in !!")
+    document.location.href= "data/Pages/settings.html"
     console.log(username + "is logged in !!")
   }
   else {
