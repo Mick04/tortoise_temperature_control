@@ -11,7 +11,7 @@ console.log('username = ' + username )
 console.log('password = '+ password)
   if (username == storedUsername && password == storedPassword) {
     console.log(username + "is logged in !!")
-    document.location.href= "data/Pages/settings.html"
+    document.location.href= "settings.html"
     console.log(username + "is logged in !!")
   }
   else {
