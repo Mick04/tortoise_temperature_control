@@ -1,5 +1,6 @@
-// let mqtt = require('mqtt')
+ // Generate a random client ID
 clientID = "clientID-" + parseInt(Math.random() * 100);
+ // Initialize new Paho client connection
 client = new Paho.MQTT.Client("test.mosquitto.org", Number(8080), clientID);
 let message;
 let connected = false;
@@ -11,10 +12,6 @@ console.log('hour = ' + hour)
 startConnect();
 function startConnect() {
   console.log('startConnect()')
-    // Generate a random client ID
-    
-    // Initialize new Paho client connection
-    
      //Set callback handlers
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
@@ -24,12 +21,9 @@ function startConnect() {
     });
 }
 
-
 function onConnect() {
   console.log("connected");
   connected = true;
-
-
     // Subscribe to the requested topic
     heater = client.subscribe("heater");
     coolSide = client.subscribe("coolSide");
@@ -50,10 +44,6 @@ function onConnectionLost(responseObject) {
 // Called when a message arrives
 function onMessageArrived(message) {
   let message1 = message.payloadString
-  console.log("(message.destinationName************* " + (message.destinationName));
-  console.log(message1);
-  //publishSliderValues(destinatioN, slider_value)
-
 }
 
 //call when you need to publish
@@ -63,15 +53,6 @@ function publishSliderValues(destinatioN, slider_value) {
   message.destinationName = destinatioN;
   client.send(message)
   console.log(" pub" + "TargetTemp" + TargetTemp)
-  
-  //  message = new Paho.MQTT.Message(slider_value);
-  // message.destinationName = 'day_h';
-  // // client.publish('day_h', message)
-  // //mqtt.send(slider_value);
-  // console.log('destinatioN = '+ message.destinationName)
-  // console.log('fffffffffslider_value = ' + slider_value)
-  // let str = JSON.stringify(message);
-  // console.log('kkkkkkkkk message = ' + str)
 } 
 
 var checkbox = document.getElementById('checkbox');
@@ -92,10 +73,9 @@ function checkCheckbox() {
   message = new Paho.MQTT.Message("F");
   message.destinationName = "Temp_Control/reset";
   client.send(message)
-
   }
- 
 }
+
 function main() {
   const container = document.querySelectorAll('.range-slider');
   for (let i = 0; i < container.length; i++) {
@@ -106,16 +86,13 @@ function main() {
     console.log('initialise slider')
     if (i == 0) {
       slider.value = localStorage.getItem('day_h');
-      console.log('slider.value  day_h  ' + slider.value + '  119');
       tooltip.innerHTML = slider.value;
-      //client.publish('day_h',slider.value)
       change = true;
       customSlider();
       change = false;
     }
     if (i == 1) {
       slider.value = localStorage.getItem('day_m');
-      console.log('slider.value  ' + slider.value + '  119');
       tooltip.innerHTML = slider.value;
       change = true;
       customSlider();
@@ -123,19 +100,16 @@ function main() {
     }
     if (i == 2) {
       slider.value = localStorage.getItem('day_temp');
-      console.log('slider.value  ' + slider.value + '  119');
       tooltip.innerHTML = slider.value;
       if (hour <= 12) {
         TargetTemp = slider.value;
       }
-      console.log("**** 130 **** TargetTemp " + TargetTemp)
       change = true;
       customSlider();
       change = false;
     }
     if (i == 3) {
       slider.value = localStorage.getItem('night_h');
-      console.log('slider.value  ' + slider.value + '  119');
       tooltip.innerHTML = slider.value;
       change = true;
       customSlider();
@@ -143,7 +117,6 @@ function main() {
     }
     if (i == 4) {
       slider.value = localStorage.getItem('night_m');
-      console.log('slider.value  ' + slider.value + '  119');
       tooltip.innerHTML = slider.value;
       change = true;
       customSlider();
@@ -151,7 +124,6 @@ function main() {
     }
     if (i == 5) {
       slider.value = localStorage.getItem('night_temp');
-      console.log('slider.value  ' + slider.value + '  119');
       tooltip.innerHTML = slider.value;
       if (hour >= 12) {
         TargetTemp = slider.value;
@@ -166,7 +138,6 @@ function main() {
         //get the percentage
         const maxVal = slider.getAttribute('max');
         const val = (slider.value / maxVal) * 100 + '%';
-        console.log(slider.value + 'i = ' + i + ' ' + ' container.length ' + container.length);
         progress.style.width = val;
         thumb.style.left = val;
 
@@ -175,7 +146,6 @@ function main() {
         if (i == 0) {
           localStorage.setItem('day_h', slider.value);
           let a = localStorage.getItem('day_h');
-          console.log('slider.value  ' + slider.value + ' a  = ' + a + '  157');
           tooltip.innerHTML = slider.value;
           if (connected === true) {
             message = slider.value;
@@ -231,7 +201,7 @@ function main() {
       }
     }
 
-    //customSlider();
+
     //repeat the function when the slider is selected
     slider.addEventListener('input', () => {
       customSlider();
