@@ -131,8 +131,8 @@ input:checked[type="checkbox"]::after {
 #d-hours {
   color: white;
   position: absolute;
-  top: 120%;
-  left: -120%;
+  top: 110%;
+  left: -127%;
 }
 /**************************************/
 /* position the whole AM hours slider */
@@ -140,38 +140,38 @@ input:checked[type="checkbox"]::after {
 #d-minutes {
   color: white;
   position: absolute;
-  top: 205%;
-  left: -120%;
+  top: 170%;
+  left: -135%;
 }
 #d-temp {
   color: white;
   position: absolute;
-  top: 290%;
+  top: 230%;
   left: -120%;
 }
 #n-hours {
   color: white;
   position: absolute;
-  top: 375%;
-  left: -120%;
+  top: 290%;
+  left: -135%;
 }
 #n-minutes {
   color: white;
   position: absolute;
-  top: 457%;
-  left: -125%;
+  top: 350%;
+  left: -147%;
 }
 #n-temp {
   color: white;
   position: absolute;
-  top: 540%;
-  left: -115%;
+  top: 410%;
+  left: -132%;
 }
 
 .range-slider {
   top: 4%;
   max-width: 30em;
-  margin: 6em auto;
+  margin: 4em auto;
   position: relative;
   display: flex;
 }
