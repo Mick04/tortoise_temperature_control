@@ -1,0 +1,39 @@
+body {
+  background: rgb(212, 202, 202);
+  color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: pink;
+  padding: 20px;
+}
+section {
+  background: white;
+  color: gray;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+div {
+  background: red;
+  margin: auto;
+  width: 100px;
+}
+
+ul a {
+  color: aliceblue;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  display: inline-block;
+  padding-left: 22px;
+  margin-right: 22px;
+}
+footer {
+  background: black;
+  padding: 10px 20px;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "mosca_mqtt.js_example",
+  "version": "1.0.0",
+  "description": "mosca mqtt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mick Cave",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "mqtt": "^4.3.7"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [
+    "mqtt",
+    "javascript"
+  ]
+}
