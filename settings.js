@@ -25,10 +25,10 @@ function onConnect() {
   console.log("connected");
   connected = true;
   // Subscribe to the requested topic
-  heater = client.subscribe("heater");
-  coolSide = client.subscribe("coolSide");
-  outSide = client.subscribe("outSide");
-  TargetTemp = client.subscribe("dayTargetTemp");
+  // heater = client.subscribe("heater");
+  // coolSide = client.subscribe("coolSide");
+  // outSide = client.subscribe("outSide");
+  // TargetTemp = client.subscribe("dayTargetTemp");
   main();
 }
 
@@ -51,7 +51,9 @@ function publishSliderValues(destinatioN, slider_value) {
   client.subscribe(destinatioN);
   message = new Paho.MQTT.Message(message);
   message.destinationName = destinatioN;
-  client.send(message);
+  message.retain = true;
+  message.qos = 1;
+  client.send(message); // or publish
   console.log(" pub" + "TargetTemp" + TargetTemp);
 }
 
@@ -87,16 +89,16 @@ function main() {
     if (i == 0) {
       slider.value = localStorage.getItem("day_h");
       tooltip.innerHTML = slider.value;
-      change = true;
+      //change = true;
       customSlider();
-      change = false;
+      //change = false;
     }
     if (i == 1) {
       slider.value = localStorage.getItem("day_m");
       tooltip.innerHTML = slider.value;
-      change = true;
+      //change = true;
       customSlider();
-      change = false;
+      //change = false;
     }
     if (i == 2) {
       slider.value = localStorage.getItem("day_temp");
@@ -104,23 +106,23 @@ function main() {
       if (hour <= 12) {
         TargetTemp = slider.value;
       }
-      change = true;
+      //change = true;
       customSlider();
-      change = false;
+      //change = false;
     }
     if (i == 3) {
       slider.value = localStorage.getItem("night_h");
       tooltip.innerHTML = slider.value;
-      change = true;
+      //change = true;
       customSlider();
-      change = false;
+      //change = false;
     }
     if (i == 4) {
       slider.value = localStorage.getItem("night_m");
       tooltip.innerHTML = slider.value;
-      change = true;
+      //change = true;
       customSlider();
-      change = false;
+      //change = false;
     }
     if (i == 5) {
       slider.value = localStorage.getItem("night_temp");
@@ -128,9 +130,9 @@ function main() {
       if (hour >= 12) {
         TargetTemp = slider.value;
       }
-      change = true;
+      //change = true;
       customSlider();
-      change = false;
+      //change = false;
     }
 
     function customSlider() {
@@ -150,7 +152,7 @@ function main() {
           if (connected === true) {
             message = slider.value;
             destinatioN = "day_h";
-            publishSliderValues(destinatioN, message);
+            publishSliderValues(destinatioN, message, true);
           }
         }
         if (i == 1) {
@@ -159,7 +161,7 @@ function main() {
           if (connected === true) {
             message = slider.value;
             destinatioN = "day_m";
-            publishSliderValues(destinatioN, message);
+            publishSliderValues(destinatioN, message, true);
           }
         }
         if (i == 2) {
@@ -168,7 +170,7 @@ function main() {
           if (connected === true) {
             message = slider.value;
             destinatioN = "day_temp";
-            publishSliderValues(destinatioN, message);
+            publishSliderValues(destinatioN, message, true);
           }
         }
         if (i == 3) {
@@ -177,7 +179,7 @@ function main() {
           if (connected === true) {
             message = slider.value;
             destinatioN = "night_h";
-            publishSliderValues(destinatioN, message);
+            publishSliderValues(destinatioN, message, true);
           }
         }
         if (i == 4) {
@@ -186,7 +188,7 @@ function main() {
           if (connected === true) {
             message = slider.value;
             destinatioN = "night_m";
-            publishSliderValues(destinatioN, message);
+            publishSliderValues(destinatioN, message, true);
           }
         }
         if (i == 5) {
@@ -194,8 +196,9 @@ function main() {
           tooltip.innerHTML = slider.value;
           if (connected === true) {
             message = slider.value;
+            TargetTemp = slider.value;
             destinatioN = "night_temp";
-            publishSliderValues(destinatioN, message);
+            publishSliderValues(destinatioN, message, true);
           }
         }
       }
