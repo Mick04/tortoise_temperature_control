@@ -131,7 +131,7 @@ input:checked[type="checkbox"]::after {
 #d-hours {
   color: white;
   position: absolute;
-  top: 110%;
+  top: 120%;
   left: -127%;
 }
 /**************************************/
